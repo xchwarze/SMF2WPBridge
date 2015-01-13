@@ -1,0 +1,36 @@
+[center][b][color=green][u][size=12pt]SMF2WPBridge[/size][/u][/b][/center]
+[center][url=https://github.com/xchwarze/SMF2WPBridge]GitHub[/url][/center]
+For SMF 2.0.x
+
+[color=green][size=3][b]Description[/b][/size][/color]
+[hr]
+Login bridge for use WP with SMF
+
+[color=green][size=3][b]Features[/b][/size][/color]
+[hr]
+[list]
+[li]If a user log in SMF, then that user will be logged in WP[/li]
+[li]If a user logout in SMF, then that user will be logout in WP[/li]
+[li]If a user created/register/change password in SMF, those actions happen on WP![/li]
+[li]Users that are created in WP can be used once disabled SMF plugin[/li]
+[li]For a full way integration use with WP2SMFBridge plugin[/li]
+[/list]
+
+
+[color=green][size=3][b]Installation[/b][/size][/color]
+[hr]
+Simply install it via package manager. 
+
+
+[color=green][size=3][b]Administration[/b][/size][/color]
+[hr]
+After install you can access it through Admin Panel
+[list]
+[li]For SMF 2.0 Goto:
+[b] Admin -> Configuration -> Modification -> SMF2WPBridge[/b][/li]
+[/list]
+
+
+[color=green][size=3][b]License[/b][/size][/color]
+[hr]
+GPL2 or later.
