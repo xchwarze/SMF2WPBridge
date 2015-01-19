@@ -5,7 +5,7 @@
 <id>DSR!:SMF2WPBridge</id>
 <version>1.0</version>
 <type>modification</type>
-	<install>
+	<install for="2.0 - 2.0.99">
 		<readme parsebbc="true">info.txt</readme>
 		<redirect url="?action=admin;area=modsettings;sa=smf2wp">redirect.txt</redirect>
 		<require-file name="Subs-SMF2WP-Admin.php" destination="$sourcedir" />
@@ -16,7 +16,7 @@
 		<require-file name="SMF2WPBridge.spanish_es-utf8.php" destination="$languagedir" />
 		<database type="file">SMF2WP-hooks.php</database>
 	</install>
-	<uninstall>
+	<uninstall for="2.0 - 2.0.99">
 		<remove-file name="$sourcedir/Subs-SMF2WP-Admin.php"/>
 		<remove-file name="$sourcedir/Subs-SMF2WP-User.php"/>
 		<remove-file name="$languagedir/SMF2WPBridge.english.php" />

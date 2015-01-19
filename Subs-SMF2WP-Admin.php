@@ -9,13 +9,13 @@ Author URI: https://github.com/xchwarze
 License: GPL2 or later.
 */
 
-function smf2wp_integrate_admin_areas($admin_location) {
+function smf2wp_integrate_admin_areas(&$admin_location) {
 	global $context, $txt;
 	loadLanguage('SMF2WPBridge');
 	$admin_location['config']['areas']['modsettings']['subsections']['smf2wp'] = array($txt['smf2wp_admin']);
 }
 
-function smf2wp_integrate_modify_modifications($subActions) {
+function smf2wp_integrate_modify_modifications(&$subActions) {
 	global $context;
 	$subActions['smf2wp'] = 'smf2wp_config';
 	$context[ $context['admin_menu_name'] ]['tab_data']['tabs']['smf2wp'] = array();
@@ -29,7 +29,7 @@ function smf2wp_config($return_config = false) {
 		array('text', 'smf2wp_wp_path'),
 	);
 	
-	if (!file_exists($modSettings['smf2wp_wp_path'] . 'wp-config.php'))
+	if (isset($modSettings['smf2wp_wp_path']) && !file_exists($modSettings['smf2wp_wp_path'] . 'wp-config.php'))
 		$config_vars[] = $txt['smf2wp_error'];
 		
 	if ($return_config)

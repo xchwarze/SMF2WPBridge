@@ -75,8 +75,14 @@ function smf2wp_integrate_register($regOptions, $theme_vars){
 	
 	require $modSettings['smf2wp_wp_path'] . 'wp-config.php';
 	
-	if (!(username_exists($regOptions['username']) || email_exists($regOptions['email'])))
-		wp_create_user($regOptions['username'], $regOptions['password'], $regOptions['email']);
+	if (!(username_exists($regOptions['username']) || email_exists($regOptions['email']))) {
+		$user_id = wp_create_user($regOptions['username'], $regOptions['password'], $regOptions['email']);
+
+		if (is_int($user_id) && ($regOptions['require'] == 'nothing')) {
+			wp_set_auth_cookie($user_id);
+			wp_set_current_user($user_id, $regOptions['username']);
+		}
+	}
 }
 
 ?>
