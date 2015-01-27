@@ -11,7 +11,7 @@ License: GPL2 or later.
 
 function smf2wp_integrate_login($memberName, $hash_password, $cookieTime){
 	global $modSettings, $wpdb, $smcFunc;
-	if (!file_exists($modSettings['smf2wp_wp_path'] . 'wp-config.php'))
+	if (empty($modSettings['smf2wp_wp_path']) || !file_exists($modSettings['smf2wp_wp_path'] . 'wp-config.php'))
 		return;
 	
 	require $modSettings['smf2wp_wp_path'] . 'wp-config.php';
@@ -43,7 +43,7 @@ function smf2wp_integrate_login($memberName, $hash_password, $cookieTime){
 
 function smf2wp_integrate_logout($memberName){
 	global $modSettings;
-	if (!file_exists($modSettings['smf2wp_wp_path'] . 'wp-config.php'))
+	if (empty($modSettings['smf2wp_wp_path']) || !file_exists($modSettings['smf2wp_wp_path'] . 'wp-config.php'))
 		return;
 		
 	require $modSettings['smf2wp_wp_path'] . 'wp-config.php';
@@ -54,7 +54,7 @@ function smf2wp_integrate_logout($memberName){
 
 function smf2wp_integrate_reset_pass($memberName, $memberName, $password){
 	global $modSettings;
-	if (!file_exists($modSettings['smf2wp_wp_path'] . 'wp-config.php'))
+	if (empty($modSettings['smf2wp_wp_path']) || !file_exists($modSettings['smf2wp_wp_path'] . 'wp-config.php'))
 		return;
 		
 	require $modSettings['smf2wp_wp_path'] . 'wp-config.php';
@@ -66,7 +66,7 @@ function smf2wp_integrate_reset_pass($memberName, $memberName, $password){
 
 function smf2wp_integrate_register($regOptions, $theme_vars){
 	global $modSettings;
-	if (!file_exists($modSettings['smf2wp_wp_path'] . 'wp-config.php'))
+	if (empty($modSettings['smf2wp_wp_path']) || !file_exists($modSettings['smf2wp_wp_path'] . 'wp-config.php'))
 		return;
 	
 	//TODO: openid support!?

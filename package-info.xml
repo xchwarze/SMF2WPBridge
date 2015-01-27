@@ -14,7 +14,7 @@
 		<require-file name="SMF2WPBridge.english-utf8.php" destination="$languagedir" />
 		<require-file name="SMF2WPBridge.spanish_es.php" destination="$languagedir" />
 		<require-file name="SMF2WPBridge.spanish_es-utf8.php" destination="$languagedir" />
-		<database type="file">SMF2WP-hooks.php</database>
+		<code>SMF2WP-hooks.php</code>
 	</install>
 	<uninstall for="2.0 - 2.0.99">
 		<remove-file name="$sourcedir/Subs-SMF2WP-Admin.php"/>
@@ -23,6 +23,6 @@
 		<remove-file name="$languagedir/SMF2WPBridge.english-utf8.php" />
 		<remove-file name="$languagedir/SMF2WPBridge.spanish_es.php" />
 		<remove-file name="$languagedir/SMF2WPBridge.spanish_es-utf8.php" />
-		<database type="file">SMF2WP-hooks.php</database>
+		<code>SMF2WP-hooks.php</code>
 	</uninstall>
 </package-info>

@@ -29,8 +29,8 @@ function smf2wp_config($return_config = false) {
 		array('text', 'smf2wp_wp_path'),
 	);
 	
-	if (isset($modSettings['smf2wp_wp_path']) && !file_exists($modSettings['smf2wp_wp_path'] . 'wp-config.php'))
-		$config_vars[] = $txt['smf2wp_error'];
+	if (empty($modSettings['smf2wp_wp_path']) || !file_exists($modSettings['smf2wp_wp_path'] . 'wp-config.php'))
+		$config_vars[] = '<span style="color:#DF013A">' . $txt['smf2wp_error'] . '<span>';
 		
 	if ($return_config)
 		return $config_vars;
