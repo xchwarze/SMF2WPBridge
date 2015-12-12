@@ -4,10 +4,12 @@ Plugin Name: SMF2WPBridge
 Plugin URI: https://github.com/xchwarze/SMF2WPBridge
 Description: Login bridge for use WP with SMF.
 Author: DSR!
-Version: 1.0
+Version: 1.1 private
 Author URI: https://github.com/xchwarze
 License: GPL2 or later.
 */
+
+define('SHORTINIT', true);
 
 function smf2wp_integrate_login($memberName, $hash_password, $cookieTime){
 	global $modSettings, $wpdb, $smcFunc;
@@ -33,11 +35,17 @@ function smf2wp_integrate_login($memberName, $hash_password, $cookieTime){
 			'SELECT email_address FROM {db_prefix}members WHERE member_name = {string:member_name} LIMIT 1',
 			array('member_name' => $memberName)
 		);
-		
+
 		$email = $smcFunc['db_fetch_row']($request);
 		$smcFunc['db_free_result']($request);
-		if (!email_exists($email[0]))
-			wp_create_user($memberName, $_POST['passwrd'], $email[0]);
+		
+		if (!email_exists($email[0])){
+			$user_id = wp_create_user($memberName, $_POST['passwrd'], $email[0]);
+			if (is_int($user_id)){
+				wp_set_auth_cookie($user_id);
+				wp_set_current_user($user_id, $memberName);
+			}
+		}
 	}
 }
 
