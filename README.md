@@ -16,6 +16,18 @@ This plugin will do these following tasks:
 	https://wordpress.org/plugins/wp2smfbridge
 
 
+Install instructions
+-----------
+1) Create a folder named SMF2WPBridge in your Packages folder
+2) Install with Admin > Package Manager 
+
+or
+
+1) Download from button "Download ZIP"
+2) Uncompress zip
+3) Zip the content of "SMF2WPBridge-master" folder to a new zip
+4) Upload and install with Admin > Package Manager
+
 Images
 -----------
 
