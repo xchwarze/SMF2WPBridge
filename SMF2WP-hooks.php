@@ -6,7 +6,7 @@ Description: Login bridge for use WP with SMF.
 Author: DSR!
 Version: 1.1.1
 Author URI: https://github.com/xchwarze
-License: GPL2 or later.
+License GNU/GPL: http://www.gnu.org/copyleft/gpl.html
 */
 
 if (file_exists(dirname(__FILE__) . '/SSI.php') && !defined('SMF'))

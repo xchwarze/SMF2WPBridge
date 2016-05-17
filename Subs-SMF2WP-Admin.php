@@ -6,7 +6,7 @@ Description: Login bridge for use WP with SMF.
 Author: DSR!
 Version: 1.1.1
 Author URI: https://github.com/xchwarze
-License: GPL2 or later.
+License GNU/GPL: http://www.gnu.org/copyleft/gpl.html
 */
 
 function smf2wp_admin_areas(&$admin_location) {

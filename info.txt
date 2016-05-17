@@ -38,4 +38,5 @@ After install you can access it through Admin Panel
 
 [color=green][size=3][b]License[/b][/size][/color]
 [hr]
-GPL2 or later.
+GNU/GPL: http://www.gnu.org/copyleft/gpl.html
+
