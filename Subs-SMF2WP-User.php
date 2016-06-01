@@ -22,6 +22,7 @@ function smf2wp_wp_requires() {
 		return true;
 
 	//savaged from wp-settings.php
+	require_once( ABSPATH . WPINC . '/l10n.php' );
 	require( ABSPATH . WPINC . '/formatting.php' );
 	require( ABSPATH . WPINC . '/capabilities.php' );
 	require( ABSPATH . WPINC . '/class-wp-roles.php' );
@@ -36,6 +37,14 @@ function smf2wp_wp_requires() {
 	wp_plugin_directory_constants();
 	wp_cookie_constants();
 	//wp_functionality_constants();
+	//wp_set_internal_encoding();
+
+	/*$locale = get_locale();
+	$locale_file = WP_LANG_DIR . "/$locale.php";
+	if ( ( 0 === validate_file( $locale ) ) && is_readable( $locale_file ) )
+		require( $locale_file );
+
+	require_once( ABSPATH . WPINC . '/locale.php' );*/
 
 	return true;
 }
