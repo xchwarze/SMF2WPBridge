@@ -3,7 +3,7 @@
 <package-info xmlns="http://www.simplemachines.org/xml/package-info" xmlns:smf="http://www.simplemachines.org/">
 <name>SMF2WPBridge</name>
 <id>DSR!:SMF2WPBridge</id>
-<version>1.1.1</version>
+<version>1.1.2</version>
 <type>modification</type>
 	<install for="2.0 - 2.0.99">
 		<readme parsebbc="true">info.txt</readme>

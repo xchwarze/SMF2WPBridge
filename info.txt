@@ -21,11 +21,15 @@ Login bridge for use WP with SMF
 [/li]
 [/list]
 
+[color=green][size=3][b]Limitations[/b][/size][/color]
+[hr]
+[list]
+[li]SMF login with OpenID does not work[/li]
+[/list]
 
 [color=green][size=3][b]Installation[/b][/size][/color]
 [hr]
 Simply install it via package manager. 
-
 
 [color=green][size=3][b]Administration[/b][/size][/color]
 [hr]
@@ -35,8 +39,6 @@ After install you can access it through Admin Panel
 [b] Admin -> Configuration -> Modification -> SMF2WPBridge[/b][/li]
 [/list]
 
-
 [color=green][size=3][b]License[/b][/size][/color]
 [hr]
 GNU/GPL: http://www.gnu.org/copyleft/gpl.html
-

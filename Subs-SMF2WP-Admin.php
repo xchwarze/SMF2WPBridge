@@ -4,13 +4,13 @@ Plugin Name: SMF2WPBridge
 Plugin URI: https://github.com/xchwarze/SMF2WPBridge
 Description: Login bridge for use WP with SMF.
 Author: DSR!
-Version: 1.1.1
+Version: 1.1.2
 Author URI: https://github.com/xchwarze
 License GNU/GPL: http://www.gnu.org/copyleft/gpl.html
 */
 
 function smf2wp_admin_areas(&$admin_location) {
-	global $context, $txt;
+	global $txt;
 	loadLanguage('SMF2WPBridge');
 	$admin_location['config']['areas']['modsettings']['subsections']['smf2wp'] = array($txt['smf2wp_admin']);
 }

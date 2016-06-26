@@ -15,6 +15,9 @@ This plugin will do these following tasks:
 	https://github.com/xchwarze/WP2SMFBridge
 	https://wordpress.org/plugins/wp2smfbridge
 
+Limitations
+-----------
+* SMF login with OpenID does not work
 
 Install instructions
 -----------
