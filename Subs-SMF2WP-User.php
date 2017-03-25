@@ -66,7 +66,7 @@ function smf2wp_login($memberName, $hash_password, $cookieTime){
         */
 		wp_set_auth_cookie($user->ID);
 		wp_set_current_user($user->ID, $user->user_login);
-	} else if (!empty($_POST['passwrd'])) {
+	} else if (!empty($_POST['hash_passwrd'])) {
 		global $smcFunc;
 		$request = $smcFunc['db_query'](
 			'', 
