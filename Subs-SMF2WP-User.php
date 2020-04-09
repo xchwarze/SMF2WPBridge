@@ -11,11 +11,11 @@ License GNU/GPL: http://www.gnu.org/copyleft/gpl.html
 
 function smf2wp_wp_requires() {
 	global $modSettings, $wp_version;
-	if (empty($modSettings['smf2wp_wp_path']) || 
+	if (empty($modSettings['smf2wp_wp_path']) ||
 		!file_exists($modSettings['smf2wp_wp_path'] . 'wp-config.php'))
 		return false;
 
-	define('SHORTINIT', true); //change this if a wp upgrade breaks smf2wp functions 
+	define('SHORTINIT', true); //change this if a wp upgrade breaks smf2wp functions
 	require $modSettings['smf2wp_wp_path'] . 'wp-config.php';
 
 	if (!SHORTINIT || version_compare($wp_version, '4.3', '<='))
@@ -69,14 +69,14 @@ function smf2wp_login($memberName, $hash_password, $cookieTime){
 	} else if (!empty($_POST['passwrd'])) {
 		global $smcFunc;
 		$request = $smcFunc['db_query'](
-			'', 
+			'',
 			'SELECT email_address FROM {db_prefix}members WHERE member_name = {string:member_name} LIMIT 1',
 			array('member_name' => $memberName)
 		);
 
 		$email = $smcFunc['db_fetch_row']($request);
 		$smcFunc['db_free_result']($request);
-		
+
 		if (!email_exists($email[0])){
 			$user_id = wp_create_user($memberName, $_POST['passwrd'], $email[0]);
 			if (is_int($user_id)){
@@ -95,13 +95,21 @@ function smf2wp_logout($memberName){
 		wp_logout();
 }
 
-function smf2wp_reset_pass($memberName, $memberName, $password){
+function smf2wp_reset_pass($memberName, $memberName2, $password){
 	if (!smf2wp_wp_requires())
 		return;
-	
+
 	$user = username_exists($memberName);
 	if ($user)
 		wp_set_password($password, $user);
+
+	if ($memberName != 	$memberName2)
+	{
+		$user = username_exists($memberName2);
+		if ($user)
+			wp_set_password($password, $user);
+	}
+
 }
 
 function smf2wp_register($regOptions, $theme_vars){
@@ -109,7 +117,7 @@ function smf2wp_register($regOptions, $theme_vars){
 		return;
 
 	//TODO: openid support!?
-	if ($regOptions['openid'] !== '' || username_exists($regOptions['username']) || 
+	if ($regOptions['openid'] !== '' || username_exists($regOptions['username']) ||
 		email_exists($regOptions['email']))
 		return;
 
