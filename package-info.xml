@@ -3,7 +3,7 @@
 <package-info xmlns="http://www.simplemachines.org/xml/package-info" xmlns:smf="http://www.simplemachines.org/">
 <name>SMF2WPBridge</name>
 <id>DSR!:SMF2WPBridge</id>
-<version>1.1.2</version>
+<version>1.1.3</version>
 <type>modification</type>
 	<install for="2.0 - 2.0.99">
 		<readme parsebbc="true">info.txt</readme>
@@ -25,4 +25,28 @@
 		<remove-file name="$languagedir/SMF2WPBridge.spanish_es-utf8.php" />
 		<code>SMF2WP-hooks.php</code>
 	</uninstall>
+
+
+
+	<install for="2.1 - 2.1.99,2.1 RC2, 2.1 RC3, 2.1 RC4, 2.1 Beta 3, 2.1 RC1">
+		<readme parsebbc="true">info.txt</readme>
+		<redirect url="?action=admin;area=modsettings;sa=smf2wp">redirect.txt</redirect>
+		<require-file name="Subs-SMF2WP-Admin.php" destination="$sourcedir" />
+		<require-file name="Subs-SMF2WP-User.php" destination="$sourcedir" />
+		<require-file name="SMF2WPBridge.english.php" destination="$languagedir" />
+		<require-file name="SMF2WPBridge.english-utf8.php" destination="$languagedir" />
+		<require-file name="SMF2WPBridge.spanish_es.php" destination="$languagedir" />
+		<require-file name="SMF2WPBridge.spanish_es-utf8.php" destination="$languagedir" />
+		<code>SMF2WP-hooks.php</code>
+	</install>
+	<uninstall for="2.1 - 2.1.99,2.1 RC2, 2.1 RC3, 2.1 RC4, 2.1 Beta 3, 2.1 RC1">
+		<remove-file name="$sourcedir/Subs-SMF2WP-Admin.php"/>
+		<remove-file name="$sourcedir/Subs-SMF2WP-User.php"/>
+		<remove-file name="$languagedir/SMF2WPBridge.english.php" />
+		<remove-file name="$languagedir/SMF2WPBridge.english-utf8.php" />
+		<remove-file name="$languagedir/SMF2WPBridge.spanish_es.php" />
+		<remove-file name="$languagedir/SMF2WPBridge.spanish_es-utf8.php" />
+		<code>SMF2WP-hooks.php</code>
+	</uninstall>
+
 </package-info>
