@@ -16,23 +16,25 @@ function smf2wp_wp_requires() {
 		return false;
 
 	define('SHORTINIT', true); //change this if a wp upgrade breaks smf2wp functions
-	require $modSettings['smf2wp_wp_path'] . 'wp-config.php';
+	require_once $modSettings['smf2wp_wp_path'] . 'wp-config.php';
 
 	if (!SHORTINIT || version_compare($wp_version, '4.3', '<='))
 		return true;
 
 	//savaged from wp-settings.php
-	require_once( ABSPATH . WPINC . '/l10n.php' );
-	require( ABSPATH . WPINC . '/formatting.php' );
-	require( ABSPATH . WPINC . '/capabilities.php' );
-	require( ABSPATH . WPINC . '/class-wp-roles.php' );
-	require( ABSPATH . WPINC . '/class-wp-role.php' );
-	require( ABSPATH . WPINC . '/class-wp-user.php' );
-	require( ABSPATH . WPINC . '/user.php' );
-	require( ABSPATH . WPINC . '/session.php' );
-	require( ABSPATH . WPINC . '/meta.php' );
-	require( ABSPATH . WPINC . '/kses.php' );
-	require( ABSPATH . WPINC . '/pluggable.php' );
+	require_once(ABSPATH . WPINC . '/l10n.php' );
+    	require_once(ABSPATH . WPINC . '/class-wp-block-parser.php');
+    	require_once(ABSPATH . WPINC . '/blocks.php' );
+    	require_once(ABSPATH . WPINC . '/kses.php' );
+	require_once(ABSPATH . WPINC . '/formatting.php' );
+	require_once(ABSPATH . WPINC . '/capabilities.php' );
+	require_once(ABSPATH . WPINC . '/class-wp-roles.php' );
+	require_once(ABSPATH . WPINC . '/class-wp-role.php' );
+	require_once(ABSPATH . WPINC . '/class-wp-user.php' );
+	require_once(ABSPATH . WPINC . '/user.php' );
+	require_once(ABSPATH . WPINC . '/session.php' );
+	require_once(ABSPATH . WPINC . '/meta.php' );
+	require_once(ABSPATH . WPINC . '/pluggable.php' );
 
 	wp_plugin_directory_constants();
 	wp_cookie_constants();
@@ -117,7 +119,7 @@ function smf2wp_register($regOptions, $theme_vars){
 		return;
 
 	//TODO: openid support!?
-	if ($regOptions['openid'] !== '' || username_exists($regOptions['username']) ||
+	if (!empty($regOptions['openid']) || username_exists($regOptions['username']) ||
 		email_exists($regOptions['email']))
 		return;
 
